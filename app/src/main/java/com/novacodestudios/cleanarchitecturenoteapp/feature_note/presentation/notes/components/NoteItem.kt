@@ -13,19 +13,26 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
+import androidx.navigation.compose.rememberNavController
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.model.Note
+import com.novacodestudios.cleanarchitecturenoteapp.feature_note.presentation.notes.NotesScreen
+import com.novacodestudios.cleanarchitecturenoteapp.ui.theme.CleanArchitectureNoteAppTheme
 import kotlin.io.path.Path
 
 @Composable
@@ -40,8 +47,8 @@ fun NoteItem(
     Box(modifier = modifier) {
         Canvas(modifier = Modifier.matchParentSize()) {
             val clipPath = androidx.compose.ui.graphics.Path().apply {
-                lineTo(size.width - cornerRadius.toPx(), 0f)
-                lineTo(size.width, cornerRadius.toPx())
+                lineTo(size.width-50f - cornerRadius.toPx(), 0f)
+                lineTo(size.width, cornerRadius.toPx()+50f)
                 lineTo(size.width, size.height)
                 lineTo(0f, size.height)
                 close()
@@ -70,7 +77,7 @@ fun NoteItem(
             Text(
                 text = note.title,
                 maxLines = 1,
-                style = MaterialTheme.typography.headlineMedium,
+                style = MaterialTheme.typography.headlineSmall,
                 overflow = TextOverflow.Ellipsis
             )
 
@@ -85,6 +92,8 @@ fun NoteItem(
         }
         IconButton(
             onClick = onDeleteClick,
+            modifier = Modifier.align(Alignment.BottomEnd)
+
         ) {
             Icon(
                 imageVector =Icons.Default.Delete,
