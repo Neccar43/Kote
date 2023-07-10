@@ -78,7 +78,8 @@ fun NoteItem(
                 text = note.title,
                 maxLines = 1,
                 style = MaterialTheme.typography.headlineSmall,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                color = Color.Black
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -87,7 +88,9 @@ fun NoteItem(
                 text = note.content,
                 maxLines = 10,
                 style = MaterialTheme.typography.bodyLarge,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                color = Color.Black
+
             )
         }
         IconButton(

@@ -57,11 +57,13 @@ fun AddEditNoteScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
-    LaunchedEffect(key1 = true){
-        viewModel.eventFlow.collectLatest {event->
+    LaunchedEffect(key1 = true) {
+        viewModel.eventFlow.collectLatest { event ->
             when (event) {
                 is AddEditNoteViewModel.UIEvent.SaveNote -> navController.navigateUp()
-                is AddEditNoteViewModel.UIEvent.ShowSnackbar -> snackbarHostState.showSnackbar(message = event.message)
+                is AddEditNoteViewModel.UIEvent.ShowSnackbar -> snackbarHostState.showSnackbar(
+                    message = event.message
+                )
             }
 
         }
@@ -118,20 +120,20 @@ fun AddEditNoteScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
-                text =titleState.text,
-                hint =titleState.hint,
-                onValueChange ={viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it))},
-                onFocusChange ={viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))},
+                text = titleState.text,
+                hint = titleState.hint,
+                onValueChange = { viewModel.onEvent(AddEditNoteEvent.EnteredTitle(it)) },
+                onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it)) },
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
-                textStyle = MaterialTheme.typography.headlineMedium
+                textStyle = MaterialTheme.typography.headlineMedium,
             )
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
-                text =contentState.text,
-                hint =contentState.hint,
-                onValueChange ={viewModel.onEvent(AddEditNoteEvent.EnteredContent(it))},
-                onFocusChange ={viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))},
+                text = contentState.text,
+                hint = contentState.hint,
+                onValueChange = { viewModel.onEvent(AddEditNoteEvent.EnteredContent(it)) },
+                onFocusChange = { viewModel.onEvent(AddEditNoteEvent.ChangeContentFocus(it)) },
                 isHintVisible = contentState.isHintVisible,
                 singleLine = false,
                 textStyle = MaterialTheme.typography.bodyLarge,
