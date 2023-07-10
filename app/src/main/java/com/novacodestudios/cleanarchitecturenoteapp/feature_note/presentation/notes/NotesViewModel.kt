@@ -68,7 +68,7 @@ class NotesViewModel @Inject constructor(
         }
     }
 
-    fun getNotes(noteOrder: NoteOrder) {
+    private fun getNotes(noteOrder: NoteOrder) {
         getNotesJob?.cancel()
 
         getNotesJob = noteUseCases.getNotes(noteOrder)

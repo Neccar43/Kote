@@ -4,7 +4,7 @@ import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.model.No
 import kotlinx.coroutines.flow.Flow
 
 
-//Repository data source umuzdaki fonksiyonları verileri kullandığımız veri gelme durumlarını kontrol ettiğimiz yerdir
+//Repository data source umuzdaki fonksiyonları ve verileri kullandığımız veri gelme durumlarını kontrol ettiğimiz yerdir
 //örn. api çağrılarının durumu başarılı şekilde geldi mi yoksa bekliyor mu veya bir hata mı oluştu
 //interface oluşturmamızın nedeni test için fake versiyonunu oluşturabilmemiz içindir
 //repository ler verileri use caselere veririr use caseler verinin nerden geldiğini bilmez api den mi yoksa local den mi geliyor umursamazlar

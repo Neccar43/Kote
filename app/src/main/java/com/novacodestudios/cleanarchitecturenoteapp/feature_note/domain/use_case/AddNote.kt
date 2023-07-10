@@ -1,4 +1,4 @@
-package com.novacodestudios.cleanarchitecturenoteapp.feature_note.presentation.notes
+package com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case
 
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteException
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.model.Note

@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Room
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.data.data_source.NoteDataBase
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.repository.NoteRepository
-import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.repository.NoteRepositoryImpl
+import com.novacodestudios.cleanarchitecturenoteapp.feature_note.data.repository.NoteRepositoryImpl
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case.DeleteNote
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case.GetNote
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case.GetNotes
 import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
-import com.novacodestudios.cleanarchitecturenoteapp.feature_note.presentation.notes.AddNote
+import com.novacodestudios.cleanarchitecturenoteapp.feature_note.domain.use_case.AddNote
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

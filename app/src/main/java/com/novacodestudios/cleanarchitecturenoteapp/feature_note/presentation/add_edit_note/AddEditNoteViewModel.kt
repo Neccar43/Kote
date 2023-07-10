@@ -32,24 +32,24 @@ class AddEditNoteViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<UIEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    private var currentNoteId:Int?=null
+    private var currentNoteId: Int? = null
 
     init {
-        savedStateHandle.get<Int>("noteId")?.let { noteId->
-            if (noteId!=-1){
+        savedStateHandle.get<Int>("noteId")?.let { noteId ->
+            if (noteId != -1) {
                 viewModelScope.launch {
                     noteUseCases.getNote(noteId)?.also { note ->
-                        currentNoteId=note.id
+                        currentNoteId = note.id
 
-                        _noteTitle.value=_noteTitle.value.copy(
+                        _noteTitle.value = noteTitle.value.copy(
                             text = note.title,
                             isHintVisible = false
                         )
-                        _noteContent.value=_noteContent.value.copy(
+                        _noteContent.value = _noteContent.value.copy(
                             text = note.content,
                             isHintVisible = false
                         )
-                        _noteColor.value=note.color
+                        _noteColor.value = note.color
 
 
                     }
@@ -95,9 +95,11 @@ class AddEditNoteViewModel @Inject constructor(
                         )
                         _eventFlow.emit(UIEvent.SaveNote)
                     } catch (e: InvalidNoteException) {
-                        _eventFlow.emit(UIEvent.ShowSnackbar(
-                            message = e.message ?: "Couldn't save note"
-                        ))
+                        _eventFlow.emit(
+                            UIEvent.ShowSnackbar(
+                                message = e.message ?: "Couldn't save note"
+                            )
+                        )
                     }
                 }
             }
