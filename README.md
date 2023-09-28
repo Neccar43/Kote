@@ -17,6 +17,6 @@ Kote is an Android note-taking application developed using Kotlin.
 
 ## Screenshots
 
-| Company Listings Screen | Company Info Screen |
+| Notes Screen | Add Edit Note Screen |
 | ---------------------- | ------------------ |
 | ![Notes Screen](./screenshots/notes_screen.png) | ![Add Edit Note Screen](./screenshots/add_edit_note_screen.png) |
